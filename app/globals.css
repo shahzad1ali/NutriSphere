@@ -1,26 +1,112 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-white: #ffffff;
+
+  --color-brand-50: #fff4f3;
+  --color-brand-100: #ffe4e1;
+  --color-brand-200: #ffc9c3;
+  --color-brand-300: #f9958d;
+  --color-brand-400: #e95a54;
+  --color-brand-500: #c51d21;
+  --color-brand-600: #a91a1d;
+  --color-brand-700: #891619;
+  --color-brand-800: #681114;
+  --color-brand-900: #490c10;
+
+  --color-ink-50: #f8f9fa;
+  --color-ink-100: #e4e7eb;
+  --color-ink-200: #cbd2d9;
+  --color-ink-300: #aeb8c2;
+  --color-ink-400: #87939f;
+  --color-ink-500: #616e7c;
+  --color-ink-600: #4e5b67;
+  --color-ink-700: #3e4c59;
+  --color-ink-800: #2d3943;
+  --color-ink-900: #1f2933;
+  --color-ink-950: #111827;
+
+  --color-surface: #f8f9fa;
+  --color-accent-teal: #2cb5bd;
+  --font-heading: var(--font-plus-jakarta);
+  --font-body: var(--font-inter);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  color-scheme: light;
+  background: var(--color-white);
+  color: var(--color-ink-900);
+  font-family: var(--font-inter), sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
+}
+
+[id] {
+  scroll-margin-top: 5.5rem;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  margin: 0;
+}
+
+::selection {
+  background: var(--color-brand-100);
+  color: var(--color-brand-900);
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-brand-600);
+  outline-offset: 3px;
+}
+
+a:active,
+button:active {
+  opacity: 0.82;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.skip-link {
+  position: fixed;
+  z-index: 100;
+  top: 0.75rem;
+  left: 0.75rem;
+  transform: translateY(-160%);
+  border-radius: 0.75rem;
+  background: var(--color-ink-900);
+  padding: 0.75rem 1rem;
+  color: var(--color-white);
+  font-weight: 700;
+  transition: transform 160ms ease-out;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+  outline-color: var(--color-brand-300);
+}
+
+header [role="dialog"] :focus-visible {
+  outline-color: var(--color-brand-300);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
