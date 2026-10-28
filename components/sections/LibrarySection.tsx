@@ -9,7 +9,7 @@ import { SmartImage } from "@/components/ui/SmartImage";
 import { sampleGuides, type SampleGuide } from "@/lib/data";
 import { cn } from "@/lib/utils";
 
-const filters = ["All", "Poultry", "Cattle", "Aquaculture", "Pet Care", "Vaccines"] as const;
+const filters = ["All", "Poultry", "Cattle", "Aquaculture", "Pet Care", "Nutrition"] as const;
 type GuideFilter = (typeof filters)[number];
 
 export function LibrarySection({ headingAs = "h2" }: { headingAs?: "h1" | "h2" }) {

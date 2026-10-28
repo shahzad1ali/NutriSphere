@@ -18,23 +18,23 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "NutriSphere | Veterinary care, rooted in wellbeing",
-    template: "%s | NutriSphere",
+    default: "Nutritech | Animal nutrition support, rooted in wellbeing",
+    template: "%s | Nutritech",
   },
   description:
-    "Veterinary medicines, vaccines, animal nutrition and professional consultation for healthier animals and stronger communities.",
+    "Feed additives, nutrition programs and professional nutrition consultation for healthier animals and stronger communities.",
   openGraph: {
-    title: "NutriSphere | Veterinary care, rooted in wellbeing",
+    title: "Nutritech | Animal nutrition support, rooted in wellbeing",
     description:
-      "Veterinary medicines, vaccines, animal nutrition and professional consultation for healthier animals and stronger communities.",
+      "Feed additives, nutrition programs and professional nutrition consultation for healthier animals and stronger communities.",
     url: siteOrigin,
-    siteName: "NutriSphere",
+    siteName: "Nutritech",
     type: "website",
   },
   metadataBase: siteUrl,
   icons: {
-    icon: "/solutions/logo.png",
-    apple: "/solutions/logo.png",
+    icon: "/solutions/Nutritech-favicon.png",
+    apple: "/solutions/Nutritech.png",
   },
   alternates: {
     canonical: "/",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#c8102e",
+  themeColor: "#C51D21",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -51,23 +51,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       "@context": "https://schema.org",
       "@type": "Organization",
       "@id": `${siteOrigin}/#organization`,
-      name: "NutriSphere",
+      name: "Nutritech",
       url: siteOrigin,
       description:
-        "Veterinary medicines, vaccines, animal nutrition and professional consultation for animal health.",
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "MedicalBusiness",
-      "@id": `${siteOrigin}/#medical-business`,
-      name: "NutriSphere",
-      url: siteOrigin,
-      description:
-        "Animal-health products and veterinary consultation information.",
-      parentOrganization: {
-        "@id": `${siteOrigin}/#organization`,
-      },
-      // TODO: Add only the verified business address, service area and contact information.
+        "Feed additives, nutrition programs and professional nutrition consultation for animal health.",
     },
   ];
 

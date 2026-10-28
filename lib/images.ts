@@ -11,10 +11,13 @@ export type ImageFallbackIcon =
   | "Pill"
   | "Sheep"
   | "Stethoscope"
-  | "Vaccine";
+  | "FeedAdditive";
 
 export type ImageAsset = {
-  src: `/images/${string}.jpeg` | `/solutions/${string}.jpeg`;
+  src:
+    | `/images/${string}.jpeg`
+    | `/solutions/${string}.jpeg`
+    | `/nutrition/${string}.jpg`;
   alt: string;
   category: ImageCategory;
   fallbackIcon: ImageFallbackIcon;
@@ -27,17 +30,28 @@ type ImageMap = {
     cattle: ImageAsset;
     buffalo: ImageAsset;
     goatSheep: ImageAsset;
+    goats: ImageAsset;
+    goatHerd: ImageAsset;
     aquaculture: ImageAsset;
+    aquacultureFarm: ImageAsset;
+    aquacultureWater: ImageAsset;
+    aquacultureMicro: ImageAsset;
+    poultryHen: ImageAsset;
+    poultryEggs: ImageAsset;
+    poultryFeed: ImageAsset;
+    poultryProduction: ImageAsset;
     petCare: ImageAsset;
     petCareExam: ImageAsset;
     petClinic: ImageAsset;
+    petHome: ImageAsset;
     equine: ImageAsset;
+    equineGrazing: ImageAsset;
+    equineRunning: ImageAsset;
   };
   products: {
-    vaccines: ImageAsset;
-    medicines: ImageAsset;
+    feedAdditives: ImageAsset;
     nutrition: ImageAsset;
-    diagnostics: ImageAsset;
+    nutritionPlanning: ImageAsset;
   };
   lab: {
     lab1: ImageAsset;
@@ -55,91 +69,157 @@ type ImageMap = {
 
 export const images = {
   hero: {
-    src: "/images/farm/veterinary-cattle-consultation.jpeg",
-    alt: "Veterinarian examining an animal",
+    src: "/nutrition/cow.jpg",
+    alt: "Cattle grazing on a green pasture",
     category: "hero",
     fallbackIcon: "Stethoscope",
   },
   species: {
     poultry: {
-      src: "/images/farm/poultry-health-check.jpeg",
+      src: "/nutrition/poultry.jpg",
       alt: "Healthy chickens in a poultry farm",
       category: "species",
       fallbackIcon: "Chicken",
     },
     cattle: {
-      src: "/images/farm/dairy-cow-care.jpeg",
+      src: "/nutrition/cow.jpg",
       alt: "Cattle grazing on a farm",
       category: "species",
       fallbackIcon: "Cow",
     },
     buffalo: {
-      src: "/images/farm/dairy-cow-care.jpeg",
-      alt: "Water buffalo in a farm setting",
+      src: "/images/farm/veterinary-cattle-consultation.jpeg",
+      alt: "A cattle nutrition consultation on a farm",
       category: "species",
       fallbackIcon: "Cow",
     },
     goatSheep: {
-      src: "/images/farm/goat-veterinary-care.jpeg",
+      src: "/nutrition/goatssheep.jpg",
       alt: "Goats and sheep on a farm",
       category: "species",
       fallbackIcon: "Sheep",
     },
+    goats: {
+      src: "/nutrition/goats.jpg",
+      alt: "Goat in a green pasture",
+      category: "species",
+      fallbackIcon: "Sheep",
+    },
+    goatHerd: {
+      src: "/nutrition/gouts.jpg",
+      alt: "A small-ruminant group in a pasture",
+      category: "species",
+      fallbackIcon: "Sheep",
+    },
     aquaculture: {
-      src: "/solutions/aquaculture.jpeg",
+      src: "/nutrition/aquacul.jpg",
       alt: "Fish in an aquaculture system",
       category: "species",
       fallbackIcon: "Fish",
     },
+    aquacultureFarm: {
+      src: "/nutrition/aquaculture.jpg",
+      alt: "Aquaculture production facility",
+      category: "species",
+      fallbackIcon: "Fish",
+    },
+    aquacultureWater: {
+      src: "/nutrition/aqua.jpg",
+      alt: "Aquatic plants in a natural water system",
+      category: "species",
+      fallbackIcon: "Fish",
+    },
+    aquacultureMicro: {
+      src: "/nutrition/aquafo.jpg",
+      alt: "Microscopic aquatic organisms",
+      category: "species",
+      fallbackIcon: "Fish",
+    },
+    poultryHen: {
+      src: "/nutrition/poultryhen.jpg",
+      alt: "Hens in a poultry flock",
+      category: "species",
+      fallbackIcon: "Chicken",
+    },
+    poultryEggs: {
+      src: "/nutrition/poultryegg.jpg",
+      alt: "Fresh eggs from a poultry flock",
+      category: "species",
+      fallbackIcon: "Chicken",
+    },
+    poultryFeed: {
+      src: "/nutrition/poultrynutrti.jpg",
+      alt: "Poultry gathered around a feed container",
+      category: "species",
+      fallbackIcon: "Chicken",
+    },
+    poultryProduction: {
+      src: "/nutrition/bernd-dittrich-AApLN_qCcBM-unsplash.jpg",
+      alt: "Poultry production facility",
+      category: "species",
+      fallbackIcon: "Chicken",
+    },
     petCare: {
-      src: "/images/species/pet-care-consultation.jpeg",
-      alt: "Veterinarian caring for a dog",
+      src: "/nutrition/petca.jpg",
+      alt: "A person caring for a companion cat",
       category: "species",
       fallbackIcon: "Dog",
     },
     petCareExam: {
-      src: "/images/species/pet-care-exam.jpeg",
-      alt: "Veterinarian caring for a dog",
+      src: "/nutrition/petcare.jpg",
+      alt: "A pet receiving a health check",
       category: "species",
       fallbackIcon: "Dog",
     },
     petClinic: {
-      src: "/images/species/pet-clinic.jpeg",
-      alt: "Veterinarian caring for a dog",
+      src: "/nutrition/pet.jpg",
+      alt: "A companion dog relaxing at home",
+      category: "species",
+      fallbackIcon: "Dog",
+    },
+    petHome: {
+      src: "/nutrition/petcareho.jpg",
+      alt: "A companion animal receiving care at home",
       category: "species",
       fallbackIcon: "Dog",
     },
     equine: {
-      src: "/solutions/equine.jpeg",
-      alt: "Horse in a stable and farm setting",
+      src: "/nutrition/Equine.jpg",
+      alt: "Horse standing in an outdoor paddock",
+      category: "species",
+      fallbackIcon: "Horse",
+    },
+    equineGrazing: {
+      src: "/nutrition/Equineform.jpg",
+      alt: "Horses grazing together in a field",
+      category: "species",
+      fallbackIcon: "Horse",
+    },
+    equineRunning: {
+      src: "/nutrition/Equinefoemoning.jpg",
+      alt: "Horse moving through an outdoor paddock",
       category: "species",
       fallbackIcon: "Horse",
     },
   },
   products: {
-    vaccines: {
-      src: "/solutions/flock%20guardvecine.jpeg",
-      alt: "Veterinary vaccine equipment",
+    feedAdditives: {
+      src: "/solutions/dailyminralmix.jpeg",
+      alt: "Animal feed additive and nutrition equipment",
       category: "products",
-      fallbackIcon: "Vaccine",
-    },
-    medicines: {
-      src: "/solutions/vetrelief-oral-solution.jpeg",
-      alt: "Veterinary medicine products",
-      category: "products",
-      fallbackIcon: "Pill",
+      fallbackIcon: "FeedAdditive",
     },
     nutrition: {
-      src: "/solutions/dailyminralmix.jpeg",
-      alt: "Animal feed and nutrition",
+      src: "/nutrition/poultrynutrti.jpg",
+      alt: "Poultry gathered around animal feed",
       category: "products",
       fallbackIcon: "Leaf",
     },
-    diagnostics: {
-      src: "/solutions/hertcheckkit.jpeg",
-      alt: "Veterinary diagnostic test kit",
+    nutritionPlanning: {
+      src: "/nutrition/cow.jpg",
+      alt: "Animal nutrition product information",
       category: "products",
-      fallbackIcon: "Microscope",
+      fallbackIcon: "FeedAdditive",
     },
   },
   lab: {
@@ -157,7 +237,7 @@ export const images = {
     },
     lab3: {
       src: "/images/lab/laboratory-team.jpeg",
-      alt: "Veterinary laboratory equipment",
+      alt: "Nutrition laboratory equipment",
       category: "lab",
       fallbackIcon: "Flask",
     },
@@ -170,14 +250,14 @@ export const images = {
       fallbackIcon: "Leaf",
     },
     farm2: {
-      src: "/images/farm/cattle-blood-sampling.jpeg",
-      alt: "Cattle in a pasture",
+      src: "/images/farm/feed-lab-visit.jpeg",
+      alt: "A farm team reviewing poultry feed",
       category: "farm",
-      fallbackIcon: "Cow",
+      fallbackIcon: "Chicken",
     },
     farm3: {
       src: "/images/farm/veterinary-cattle-consultation.jpeg",
-      alt: "Farmer working with livestock",
+      alt: "A nutrition professional consulting with a cattle farmer",
       category: "farm",
       fallbackIcon: "Sheep",
     },

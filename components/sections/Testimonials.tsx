@@ -57,7 +57,7 @@ export function Testimonials() {
       <Container>
         <div className="grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:items-end">
           <SectionHeading
-            description="Sample reflections illustrating the kinds of conversations NutriSphere aims to support."
+            description="Sample reflections illustrating the kinds of conversations Nutritech aims to support."
             eyebrow="In their words"
             id="testimonials-heading"
             title="Care conversations that matter."

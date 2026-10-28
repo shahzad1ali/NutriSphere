@@ -5,7 +5,7 @@ import { PageHero } from "@/components/ui/PageHero";
 
 export const metadata: Metadata = {
   title: "Species",
-  description: "Explore NutriSphere animal-health information by species.",
+  description: "Explore Nutritech animal-health information by species.",
   alternates: { canonical: "/species" },
 };
 

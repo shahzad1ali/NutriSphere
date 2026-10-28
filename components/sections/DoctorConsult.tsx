@@ -13,7 +13,7 @@ const steps = [
   },
   {
     number: "02",
-    title: "Talk to a vet",
+    title: "Talk to a nutritionist",
     description:
       "Discuss your concerns and answer a few follow-up questions.",
   },
@@ -21,7 +21,7 @@ const steps = [
     number: "03",
     title: "Get a prescribed plan",
     description:
-      "Receive next-step guidance, including a prescription when appropriate.",
+      "Receive next-step guidance, tailored to the animals and production context.",
   },
 ];
 
@@ -42,8 +42,8 @@ export function DoctorConsult() {
           whileInView={{ opacity: 1, y: 0 }}
         >
           <SectionHeading
-            description="A focused veterinary conversation can help you organize what you are seeing and consider the right next step."
-            eyebrow="Veterinary consultation"
+            description="A focused nutrition conversation can help you organize what you are seeing and consider the right next step."
+            eyebrow="Nutrition consultation"
             id="consult-heading"
             title="A clearer path from concern to care."
           />
@@ -69,12 +69,12 @@ export function DoctorConsult() {
           </Button>
           <p className="mt-3 max-w-md text-xs leading-5 text-ink-500">
             Consultations do not replace an in-person examination when one is
-            needed. In an emergency, contact a local veterinary provider.
+            needed. In an emergency, contact a local nutrition provider.
           </p>
         </motion.div>
 
         <motion.div
-          aria-label="Illustration of a veterinary consultation"
+          aria-label="Illustration of a nutrition consultation"
           className="relative mx-auto w-full max-w-lg"
           initial={prefersReducedMotion ? false : { opacity: 0, y: 18 }}
           role="img"
@@ -94,7 +94,7 @@ export function DoctorConsult() {
                 </span>
                 <span>
                   <span className="block text-sm font-semibold text-brand-900">
-                    Veterinary consultation
+                    Nutrition consultation
                   </span>
                   <span className="mt-0.5 block text-xs text-ink-500">
                     Care conversation preview
@@ -118,7 +118,7 @@ export function DoctorConsult() {
                 </span>
                 <div className="rounded-2xl rounded-bl-md bg-ink-50 px-4 py-3 text-sm leading-6 text-ink-700">
                   Note when it began, any changes in drinking, and other signs.
-                  A veterinarian can help assess what to do next.
+                  A nutritionist can help assess what to do next.
                 </div>
               </div>
               <div className="mx-auto flex w-fit items-center gap-2 rounded-full border border-ink-100 bg-white px-3 py-2 text-xs text-ink-500">

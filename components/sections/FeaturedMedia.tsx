@@ -34,7 +34,7 @@ export function FeaturedMedia() {
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
               <button
-                aria-label="Play NutriSphere farm care introduction"
+                aria-label="Play Nutritech farm care introduction"
                 className="absolute inset-0 grid place-items-center bg-ink-950/15 transition hover:bg-ink-950/25 focus-visible:outline-white"
                 onClick={() => setOpen(true)}
                 type="button"
@@ -56,7 +56,7 @@ export function FeaturedMedia() {
           >
             <p className="text-xs font-bold uppercase tracking-[0.17em] text-brand-700">Care in context</p>
             <h2 className="mt-4 max-w-xl font-heading text-3xl font-semibold leading-tight tracking-[-0.04em] text-brand-900 sm:text-4xl" id="featured-media-heading">
-              At NutriSphere, science meets farm care
+              At Nutritech, science meets farm care
             </h2>
             <p className="mt-5 max-w-xl text-base leading-7 text-ink-600">
               Animal health is shaped by the details of everyday care. We bring clear product information, practical resources and professional conversations together to help people make informed next steps.
@@ -82,11 +82,11 @@ export function FeaturedMedia() {
             <SmartImage asset={images.farm.farm2} className="size-full" sizes="(max-width: 768px) 96vw, 640px" />
             <div className="absolute inset-0 grid place-items-center bg-ink-950/45 p-6 text-center text-white">
               <p className="max-w-md text-base leading-7">
-                Our farm-care film is in development. This space will feature verified NutriSphere stories when a video is available.
+                Our farm-care film is in development. This space will feature verified Nutritech stories when a video is available.
               </p>
             </div>
           </div>
-          {/* TODO: Add the approved NutriSphere video URL. */}
+          {/* TODO: Add the approved Nutritech video URL. */}
         </AccessibleModal>
       ) : null}
     </section>

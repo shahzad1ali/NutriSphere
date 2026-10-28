@@ -20,7 +20,7 @@ export default function NotFound() {
         </h1>
         <p className="mx-auto mt-4 max-w-lg text-base leading-7 text-ink-600">
           The address may be out of date or the page may have moved. Head back
-          to NutriSphere to find animal-health resources and support.
+          to Nutritech to find animal-health resources and support.
         </p>
         <Button className="mt-8" href="/" size="lg" withArrow>
           Return to homepage

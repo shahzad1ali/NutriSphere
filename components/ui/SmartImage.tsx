@@ -2,19 +2,39 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { Chicken, Flask, Leaf, Pill, Stethoscope } from "@/components/icons";
+import {
+  Chicken,
+  Cow,
+  Dog,
+  FeedAdditive,
+  Fish,
+  Flask,
+  Horse,
+  Leaf,
+  Microscope,
+  Pill,
+  Sheep,
+  Stethoscope,
+} from "@/components/icons";
 import type { IconProps } from "@/components/icons";
 import { HexIcon } from "@/components/icons/HexIcon";
 import type { ComponentType } from "react";
-import type { ImageAsset, ImageCategory } from "@/lib/images";
+import type { ImageAsset, ImageFallbackIcon } from "@/lib/images";
 import { cn } from "@/lib/utils";
 
-const fallbackIcons: Record<ImageCategory, ComponentType<IconProps>> = {
-  hero: Stethoscope,
-  species: Chicken,
-  products: Pill,
-  lab: Flask,
-  farm: Leaf,
+const fallbackIcons: Record<ImageFallbackIcon, ComponentType<IconProps>> = {
+  Chicken,
+  Cow,
+  Dog,
+  Fish,
+  Flask,
+  Horse,
+  Leaf,
+  Microscope,
+  Pill,
+  Sheep,
+  Stethoscope,
+  FeedAdditive,
 };
 
 const blurDataURL =
@@ -38,7 +58,7 @@ export function SmartImage({
   objectPosition = "center",
 }: SmartImageProps) {
   const [failed, setFailed] = useState(false);
-  const FallbackIcon = fallbackIcons[asset.category];
+  const FallbackIcon = fallbackIcons[asset.fallbackIcon];
   const imageSrc = asset.src;
 
   return (

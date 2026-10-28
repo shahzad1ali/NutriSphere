@@ -14,11 +14,11 @@ import {
   Cow,
   Dog,
   Fish,
+  Horse,
   Leaf,
-  Microscope,
+  Sheep,
   Shield,
   Stethoscope,
-  Vaccine,
   type IconProps,
 } from "@/components/icons";
 import { Button } from "@/components/ui";
@@ -36,69 +36,25 @@ type MenuLink = {
 };
 
 const productLinks: MenuLink[] = [
-  {
-    label: "Poultry",
-    description: "Health and nutrition for poultry",
-    icon: Chicken,
-    href: "/species/poultry",
-  },
-  {
-    label: "Ruminants & cattle",
-    description: "Care for cattle and ruminants",
-    icon: Cow,
-    href: "/species/cattle",
-  },
-  {
-    label: "Aquaculture",
-    description: "Support for aquatic animal health",
-    icon: Fish,
-    href: "/species/aquaculture",
-  },
-  {
-    label: "Pet care",
-    description: "Everyday essentials for companion animals",
-    icon: Dog,
-    href: "/species/pet-care",
-  },
-  {
-    label: "Vaccines",
-    description: "Preventive care for animal health",
-    icon: Vaccine,
-    href: "/products/flockguard-vaccine",
-  },
+  { label: "Poultry", description: "Feed Additives and nutrition programs for poultry", icon: Chicken, href: "/species/poultry" },
+  { label: "Cattle & Buffalo", description: "Nutrition support for cattle and buffalo", icon: Cow, href: "/species/cattle" },
+  { label: "Goats & Sheep", description: "Small-ruminant feed and nutrition support", icon: Sheep, href: "/species/goat-sheep" },
+  { label: "Aquaculture", description: "Nutrition programs for aquatic animal systems", icon: Fish, href: "/species/aquaculture" },
+  { label: "Pet Care", description: "Nutrition support for companion animals", icon: Dog, href: "/species/pet-care" },
+  { label: "Equine", description: "Nutrition support for horses and equines", icon: Horse, href: "/species/equine" },
 ];
 
 const solutionLinks: MenuLink[] = [
-  {
-    label: "Nutrition programs",
-    description: "Nutrition support across animal life stages",
-    icon: Leaf,
-    href: "/products/dailybalance-mineral-mix",
-  },
-  {
-    label: "Disease prevention",
-    description: "Practical preventive care and vaccines",
-    icon: Shield,
-    href: "/products/flockguard-vaccine",
-  },
-  {
-    label: "Lab and diagnostics",
-    description: "Tools and guidance for informed decisions",
-    icon: Microscope,
-    href: "/products/herdcheck-test-kit",
-  },
-  {
-    label: "Farm consultation",
-    description: "Veterinary guidance for farm teams",
-    icon: Stethoscope,
-    href: "/contact",
-  },
+  { label: "Kemin Feed Additives", description: "Explore Kemin feed-additive solutions", icon: Leaf, href: "https://www.kemin.com/in/en/home" },
+  { label: "Poultry Nutrition", description: "Nutrition support for flock performance", icon: Chicken, href: "https://www.kemin.com/in/en/home" },
+  { label: "Ruminant Nutrition", description: "Nutrition support for cattle, buffalo, goats and sheep", icon: Cow, href: "https://www.kemin.com/in/en/home" },
+  { label: "Nutrition Consultation", description: "Talk with an animal nutrition specialist", icon: Stethoscope, href: "/contact" },
 ];
 
 const featuredProducts = [
-  { label: "Animal nutrition", href: "/products/dailybalance-mineral-mix" },
-  { label: "Preventive care", href: "/products/flockguard-vaccine" },
-  { label: "Veterinary medicines", href: "/products/vetrelief-oral-solution" },
+  { label: "Kemin Feed Additives", href: "https://www.kemin.com/in/en/home" },
+  { label: "Poultry Nutrition", href: "https://www.kemin.com/in/en/home" },
+  { label: "Animal Nutrition Programs", href: "https://www.kemin.com/in/en/home" },
 ];
 
 const mobileFocusableSelector =
@@ -255,6 +211,8 @@ export function Header() {
                     href={href}
                     key={label}
                     onClick={() => setActiveMenu(null)}
+                    target={href.startsWith("http") ? "_blank" : undefined}
+                    rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
                   >
                     <span className="grid size-10 place-items-center rounded-xl bg-brand-50 text-brand-700 transition group-hover:bg-white">
                       <ItemIcon aria-hidden="true" className="size-5" />
@@ -333,6 +291,8 @@ export function Header() {
                     href={href}
                     key={label}
                     onClick={closeDrawer}
+                    target={href.startsWith("http") ? "_blank" : undefined}
+                    rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
                   >
                     <ItemIcon aria-hidden="true" className="size-5 text-brand-300" />
                     {label}
@@ -359,7 +319,7 @@ export function Header() {
       <div className="bg-ink-100 text-ink-700">
         <div className="mx-auto flex min-h-12 max-w-7xl items-center justify-between gap-3 px-5 text-xs sm:px-8 lg:px-10">
           <div className="flex items-center">
-            {/* TODO: replace the region prompt with NutriSphere's configured service region. */}
+            {/* TODO: replace the region prompt with Nutritech's configured service region. */}
             <Link
               className="inline-flex min-h-11 items-center text-ink-600 underline-offset-4 hover:text-brand-700 hover:underline"
               href="/contact"
@@ -367,13 +327,13 @@ export function Header() {
               Region: Contact us
             </Link>
           </div>
-          {/* TODO: Replace this contact-form link with a verified veterinary phone number. */}
+          {/* TODO: Replace this contact-form link with a verified nutrition phone number. */}
           <Link
             className="inline-flex min-h-11 items-center gap-2 font-semibold text-ink-800 transition hover:text-brand-700 focus-visible:outline-brand-700"
             href="/contact"
           >
             <Stethoscope aria-hidden="true" className="size-4 text-brand-600" />
-            Talk to a Vet
+            Talk to a Nutritionist
           </Link>
         </div>
       </div>
@@ -399,7 +359,7 @@ export function Header() {
         >
           <div className="mx-auto flex min-h-[4.75rem] max-w-7xl items-center justify-between gap-4 px-5 sm:px-8 lg:px-10">
             <Link
-              aria-label="NutriSphere home"
+              aria-label="Nutritech home"
               className="inline-flex min-h-11 shrink-0 items-center gap-2.5 rounded-lg"
               href="/"
               onClick={() => setActiveMenu(null)}
@@ -409,7 +369,7 @@ export function Header() {
                 className="h-auto w-[126px]"
                 height={107}
                 loading="eager"
-                src="/solutions/logo.png"
+                src="/solutions/Nutritech.png"
                 width={180}
               />
             </Link>
@@ -480,7 +440,7 @@ export function Header() {
               size="sm"
               withArrow
             >
-              Consult a Veterinarian
+              Talk to a Nutritionist
             </Button>
             <button
               aria-expanded={drawerOpen}
@@ -537,7 +497,7 @@ export function Header() {
                       alt=""
                       className="h-auto w-[126px]"
                       height={107}
-                      src="/solutions/logo.png"
+                      src="/solutions/Nutritech.png"
                       width={180}
                     />
                   </span>
@@ -584,7 +544,7 @@ export function Header() {
                 size="lg"
                 withArrow
               >
-                Consult a Veterinarian
+                Talk to a Nutritionist
               </Button>
               <Link
                 className="mx-auto mt-5 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-white/80"
@@ -592,7 +552,7 @@ export function Header() {
                 onClick={closeDrawer}
               >
                 <Stethoscope aria-hidden="true" className="size-4 text-brand-300" />
-                Talk to a Vet
+                Talk to a Nutritionist
               </Link>
             </div>
           </motion.div>

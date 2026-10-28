@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const alt =
-  "NutriSphere — veterinary medicines, vaccines, nutrition and consultation";
+  "Nutritech — feed additives, nutrition programs and nutrition consultation";
 
 export const size = {
   width: 1200,
@@ -53,7 +53,7 @@ export default function OpenGraphImage() {
             <span
               style={{
                 alignItems: "center",
-                background: "#C8102E",
+                background: "#C51D21",
                 borderRadius: 16,
                 color: "#FFFFFF",
                 display: "flex",
@@ -65,7 +65,7 @@ export default function OpenGraphImage() {
             >
               N
             </span>
-            NutriSphere
+            Nutritech
           </div>
           <div
             style={{
@@ -78,8 +78,8 @@ export default function OpenGraphImage() {
               maxWidth: 760,
             }}
           >
-            <span>Science-backed care</span>
-            <span style={{ color: "#FDBFC6" }}>for every animal.</span>
+            <span>Science-led nutrition</span>
+            <span style={{ color: "#FDBFC6" }}>for every production goal.</span>
           </div>
           <div
             style={{
@@ -89,7 +89,7 @@ export default function OpenGraphImage() {
               maxWidth: 740,
             }}
           >
-            Veterinary medicines, vaccines, nutrition and consultation.
+            Feed additives, nutrition programs and nutrition consultation.
           </div>
         </div>
         <div

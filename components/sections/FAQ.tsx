@@ -9,14 +9,14 @@ const questions = [
       "Use the contact form to tell us which products or animal-health support you are looking for. Our team can follow up about availability, ordering steps and regional requirements.",
   },
   {
-    question: "Do veterinary medicines require a prescription?",
+    question: "Do I need specialist guidance before choosing a feed additive?",
     answer:
-      "Some products require veterinary authorization, while other products may be available without a prescription. Requirements vary by product and region; check with a veterinarian and confirm local rules before ordering.",
+      "Product suitability depends on species, life stage, feed formulation and local requirements. Discuss options with an animal nutritionist before making changes.",
   },
   {
-    question: "How should vaccines and other products be stored?",
+    question: "How should feed additives and other products be stored?",
     answer:
-      "Follow the storage instructions on the specific product label and any guidance from the supplier or veterinary professional. Requirements differ between products, so do not assume one storage range applies to all items.",
+      "Follow the storage instructions on the specific product label and any guidance from the supplier or nutrition professional. Requirements differ between products, so do not assume one storage range applies to all items.",
   },
   {
     question: "Where do you deliver?",
@@ -24,9 +24,9 @@ const questions = [
       "Delivery availability depends on the destination and product. Contact our team with your region to ask about current service coverage and handling options.",
   },
   {
-    question: "Can I speak with a veterinarian?",
+    question: "Can I speak with a nutritionist?",
     answer:
-      "You can request a consultation using the form on this page. A veterinary professional can advise on whether a remote conversation is suitable or an in-person examination is needed.",
+      "You can request a consultation using the form on this page. A nutrition professional can advise on whether a remote conversation is suitable or an in-person examination is needed.",
   },
   {
     question: "Are the products shown on this page available now?",

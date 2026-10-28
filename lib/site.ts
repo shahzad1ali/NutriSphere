@@ -1,4 +1,4 @@
-const defaultSiteUrl = "https://nutrisphere.example";
+const defaultSiteUrl = "https://Nutritech.example";
 
 // TODO: Set NEXT_PUBLIC_SITE_URL to the verified public HTTPS origin before deployment.
 export const siteUrl = new URL(

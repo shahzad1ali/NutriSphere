@@ -4,7 +4,7 @@ import { Hero } from "@/components/sections/Hero";
 import { MarketsGrid } from "@/components/sections/MarketsGrid";
 import { ProductShowcase } from "@/components/sections/ProductShowcase";
 import { DoctorConsult } from "@/components/sections/DoctorConsult";
-import { WhyNutriSphere } from "@/components/sections/WhyNutriSphere";
+import { WhyNutritech } from "@/components/sections/WhyNutritech";
 import { ResourcesPreview } from "@/components/sections/ResourcesPreview";
 import { StatsStrip } from "@/components/sections/StatsStrip";
 import { Testimonials } from "@/components/sections/Testimonials";
@@ -18,7 +18,7 @@ export default function Home() {
       <MarketsGrid />
       <FeaturedMedia />
       <ProductShowcase />
-      <WhyNutriSphere />
+      <WhyNutritech />
       <DoctorConsult />
       <ResourcesPreview />
       <StatsStrip />

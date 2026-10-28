@@ -78,7 +78,7 @@ export function Sheep(props: IconProps) {
   );
 }
 
-export function Vaccine(props: IconProps) {
+export function FeedAdditive(props: IconProps) {
   return (
     <IconFrame {...props}>
       <path d="m8 5 11 11m-8-14 3 3m-7 7 3-3m-8 8 8-8m-6 10 4-4m-7 7 3-3m8-16 2-2m6 6-2 2" />

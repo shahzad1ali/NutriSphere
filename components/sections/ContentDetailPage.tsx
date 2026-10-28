@@ -50,15 +50,28 @@ export function ContentDetailPage({
 }: ContentDetailPageProps) {
   const isSpecies = kind === "species";
   const relatedProducts = record.relatedProducts
+    .filter((slug, index, slugs) => slugs.indexOf(slug) === index)
     .map((slug) => productPages.find((product) => product.slug === slug))
     .filter((product): product is ProductRecord => Boolean(product));
   const relatedSpecies = record.relatedSpecies
+    .filter((slug, index, slugs) => slugs.indexOf(slug) === index)
     .map((slug) => speciesPages.find((species) => species.slug === slug))
     .filter(
       (species): species is (typeof speciesPages)[number] =>
         species !== undefined,
     );
-  const related = isSpecies ? relatedProducts : relatedSpecies;
+  const practiceImages = record.gallery.filter(
+    (image, index, gallery) =>
+      image.src !== record.image.src &&
+      gallery.findIndex((galleryImage) => galleryImage.src === image.src) === index,
+  );
+  const usedImageSources = new Set([
+    record.image.src,
+    ...practiceImages.map((image) => image.src),
+  ]);
+  const related = (isSpecies ? relatedProducts : relatedSpecies).filter(
+    (item) => !usedImageSources.has(item.image.src),
+  );
   const hrefFor = (slug: string) =>
     `/${isSpecies ? "products" : "species"}/${slug}`;
   const articleAnchor = isSpecies ? "/species" : "/products";
@@ -95,31 +108,22 @@ export function ContentDetailPage({
             <div className="space-y-12 text-ink-900 lg:col-span-8">
               <section aria-labelledby="overview">
                 <h2 className="font-heading text-2xl font-semibold text-ink-900 sm:text-3xl" id="overview">An overview of {record.title}</h2>
-                <div className="mt-6 flex flex-col items-center gap-6 lg:flex-row">
-                  <SmartImage
-                    asset={record.image}
-                    className="aspect-[4/3] w-full shrink-0 overflow-hidden rounded-3xl lg:w-[46%]"
-                    imageClassName="transition-transform duration-500 hover:scale-[1.03]"
-                    sizes="(max-width: 1024px) 100vw, 600px"
-                  />
-                  <p className="text-lg leading-8 text-ink-700 lg:flex-1">{record.intro}</p>
-                </div>
-                <div className="mt-8 space-y-8">
+                <p className="mt-6 rounded-r-2xl border-l-4 border-brand-500 bg-brand-50/70 px-5 py-5 text-lg leading-8 text-ink-700 sm:px-7">
+                  {record.intro}
+                </p>
+                <div className="mt-8 grid gap-3">
                   {record.longDescription.map((paragraph, index) => (
-                    <div
-                      className={`flex flex-col items-center gap-6 lg:flex-row ${index % 2 === 0 ? "lg:flex-row-reverse" : ""}`}
+                    <article
+                      className="grid gap-3 rounded-2xl border border-ink-100 bg-white p-5 shadow-sm sm:grid-cols-[3rem_1fr] sm:gap-5 sm:p-6"
                       key={paragraph}
                     >
-                      <SmartImage
-                        asset={record.gallery[index % record.gallery.length]}
-                        className="aspect-[4/3] w-full shrink-0 overflow-hidden rounded-3xl lg:w-[46%]"
-                        imageClassName="transition-transform duration-500 hover:scale-[1.03]"
-                        sizes="(max-width: 1024px) 100vw, 600px"
-                      />
-                      <p className="border-l-2 border-brand-300 py-2 pl-5 text-base leading-7 text-ink-700 lg:flex-1">
+                      <span className="font-mono text-sm font-semibold tracking-widest text-brand-700">
+                        {String(index + 1).padStart(2, "0")}
+                      </span>
+                      <p className="text-base leading-7 text-ink-700">
                         {paragraph}
                       </p>
-                    </div>
+                    </article>
                   ))}
                 </div>
               </section>
@@ -138,7 +142,13 @@ export function ContentDetailPage({
 
               <section aria-labelledby="gallery-title" id="nutrition-plan">
                 <h2 className="mb-5 font-heading text-2xl font-semibold text-ink-900" id="gallery-title">In practice</h2>
-                <ImageGallery images={record.gallery} title={`${record.title} gallery`} />
+                {practiceImages.length > 0 ? (
+                  <ImageGallery images={practiceImages} title={`${record.title} gallery`} />
+                ) : (
+                  <p className="text-sm leading-6 text-ink-600">
+                    More species-specific photos will be added soon.
+                  </p>
+                )}
               </section>
 
               <section aria-labelledby="faq-title">
@@ -205,8 +215,8 @@ export function ContentDetailPage({
                 </div>
                 <div className="rounded-3xl border-l-4 border-accent-teal bg-brand-50 p-6">
                   <h2 className="font-heading text-lg font-semibold text-brand-900">Need a professional perspective?</h2>
-                  <p className="mt-2 text-sm leading-6 text-ink-600">Talk with a veterinary professional about your context and local options.</p>
-                  <Button className="mt-4 w-full" href="/contact" size="sm" withArrow>Talk to a Vet</Button>
+                  <p className="mt-2 text-sm leading-6 text-ink-600">Talk with a nutrition professional about your context and local options.</p>
+                  <Button className="mt-4 w-full" href="/contact" size="sm" withArrow>Talk to a Nutritionist</Button>
                 </div>
               </div>
             </aside>

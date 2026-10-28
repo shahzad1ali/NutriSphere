@@ -30,7 +30,7 @@ export function FloatingContactBar() {
         Let&apos;s Work Together
       </span>
       <Link
-        aria-label="Request a phone call from NutriSphere"
+        aria-label="Request a phone call from Nutritech"
         className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl px-3 text-xs font-semibold transition hover:bg-white/10 sm:px-4"
         href="/contact"
         title="Go to the contact form to request a call"
@@ -39,7 +39,7 @@ export function FloatingContactBar() {
         <span>Call</span>
       </Link>
       <Link
-        aria-label="Request WhatsApp contact from NutriSphere"
+        aria-label="Request WhatsApp contact from Nutritech"
         className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl px-3 text-xs font-semibold transition hover:bg-white/10 sm:px-4"
         href="/contact"
         title="Go to the contact form to request WhatsApp contact"
@@ -48,7 +48,7 @@ export function FloatingContactBar() {
         <span>WhatsApp</span>
       </Link>
       <Link
-        aria-label="Request email contact from NutriSphere"
+        aria-label="Request email contact from Nutritech"
         className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl px-3 text-xs font-semibold transition hover:bg-white/10 sm:px-4"
         href="/contact"
         title="Go to the contact form to request email contact"

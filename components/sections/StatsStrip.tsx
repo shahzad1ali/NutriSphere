@@ -89,7 +89,7 @@ export function StatsStrip() {
 
   return (
     <section
-      aria-label="Illustrative NutriSphere figures"
+      aria-label="Illustrative Nutritech figures"
       className="bg-ink-900 py-14 text-white sm:py-16"
       ref={sectionRef}
     >

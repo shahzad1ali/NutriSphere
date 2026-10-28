@@ -7,7 +7,6 @@ import { Container, SectionHeading } from "@/components/ui";
 import { ImageGallery } from "@/components/ui/ImageGallery";
 import { SmartImage } from "@/components/ui/SmartImage";
 import { sampleGuides } from "@/lib/data";
-import { images } from "@/lib/images";
 import { siteOrigin } from "@/lib/site";
 
 type GuidePageProps = {
@@ -29,7 +28,7 @@ export async function generateMetadata({ params }: GuidePageProps): Promise<Meta
     description: guide.description,
     alternates: { canonical: `/library/${guide.slug}` },
     openGraph: {
-      title: `${guide.title} | NutriSphere Knowledge Library`,
+      title: `${guide.title} | Nutritech Knowledge Library`,
       description: guide.description,
       url: `${siteOrigin}/library/${guide.slug}`,
       images: [`${siteOrigin}${guide.image.src}`],
@@ -41,6 +40,11 @@ export default async function GuidePage({ params }: GuidePageProps) {
   const { slug } = await params;
   const guide = sampleGuides.find((item) => item.slug === slug);
   if (!guide) notFound();
+  const gallery = guide.gallery.filter(
+    (image, index, allImages) =>
+      image.src !== guide.image.src &&
+      allImages.findIndex((galleryImage) => galleryImage.src === image.src) === index,
+  );
 
   return (
     <PageTransition>
@@ -71,7 +75,13 @@ export default async function GuidePage({ params }: GuidePageProps) {
                 </div>
                 <h2 className="mt-12 font-heading text-2xl font-semibold text-brand-900">Related scenes</h2>
                 <div className="mt-5">
-                  <ImageGallery images={[guide.image, images.lab.lab1, images.farm.farm4]} title={`${guide.title} gallery`} />
+                  {gallery.length > 0 ? (
+                    <ImageGallery images={gallery} title={`${guide.title} gallery`} />
+                  ) : (
+                    <p className="text-sm leading-6 text-ink-600">
+                      More related photos will be added soon.
+                    </p>
+                  )}
                 </div>
                 <Link className="mt-8 inline-flex min-h-11 items-center gap-2 font-semibold text-brand-800 hover:text-brand-900" href="/library">
                   <Arrow aria-hidden="true" className="size-4 rotate-180" /> Back to all guides
@@ -79,7 +89,7 @@ export default async function GuidePage({ params }: GuidePageProps) {
               </div>
               <aside className="h-fit rounded-3xl border border-brand-100 bg-brand-50 p-6 lg:sticky lg:top-24">
                 <h2 className="font-heading text-xl font-semibold text-brand-900">A note on sample content</h2>
-                <p className="mt-3 text-sm leading-6 text-ink-600">This guide is an illustrative sample. It is not medical advice and should be replaced by reviewed, region-appropriate content before publication.</p>
+                <p className="mt-3 text-sm leading-6 text-ink-600">This guide is an illustrative sample. It should be replaced by reviewed, region-appropriate content before publication.</p>
                 <Link className="mt-5 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-brand-800 hover:text-brand-900" href="/contact">Contact the team <Arrow aria-hidden="true" className="size-4" /></Link>
               </aside>
             </Container>

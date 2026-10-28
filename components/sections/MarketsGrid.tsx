@@ -20,7 +20,7 @@ const markets = [
     title: "Poultry",
     slug: "poultry",
     description:
-      "Medicines, vaccines and nutrition support for healthy flock management.",
+      "Nutrition Products, feed additives and nutrition support for healthy flock management.",
     icon: Chicken,
     image: images.species.poultry,
   },
@@ -28,7 +28,7 @@ const markets = [
     title: "Cattle and Buffalo",
     slug: "cattle",
     description:
-      "Everyday veterinary and nutrition essentials for large ruminants.",
+      "Everyday nutrition and nutrition essentials for large ruminants.",
     icon: Cow,
     image: images.species.cattle,
   },
@@ -60,7 +60,7 @@ const markets = [
     title: "Equine",
     slug: "equine",
     description:
-      "Veterinary care and nutritional support for horses and equines.",
+      "Animal nutrition support and nutritional support for horses and equines.",
     icon: Horse,
     image: images.species.equine,
   },

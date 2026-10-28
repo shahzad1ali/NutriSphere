@@ -4,7 +4,7 @@ export default function Loading() {
   return (
     <main
       aria-busy="true"
-      aria-label="Loading NutriSphere"
+      aria-label="Loading Nutritech"
       className="min-h-[60vh] bg-white py-16"
       role="status"
     >

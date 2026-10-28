@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
     description: record.intro,
     alternates: { canonical: `/products/${record.slug}` },
     openGraph: {
-      title: `${record.title} | NutriSphere`,
+      title: `${record.title} | Nutritech`,
       description: record.intro,
       url: `${siteOrigin}/products/${record.slug}`,
       images: [`${siteOrigin}${record.image.src ?? images.hero.src}`],

@@ -51,10 +51,10 @@ const speciesLinks: SpeciesLink[] = [
 ];
 
 const solutionLinks: FooterLink[] = [
-  { label: "Vaccines", href: "/products/flockguard-vaccine" },
-  { label: "Medicines", href: "/products/vetrelief-oral-solution" },
-  { label: "Nutrition", href: "/products/dailybalance-mineral-mix" },
-  { label: "Diagnostics", href: "/products/herdcheck-test-kit" },
+  { label: "Kemin Feed Additives", href: "https://www.kemin.com/in/en/home" },
+  { label: "Poultry Nutrition", href: "https://www.kemin.com/in/en/home" },
+  { label: "Cattle & Buffalo Nutrition", href: "https://www.kemin.com/in/en/home" },
+  { label: "Aquaculture Nutrition", href: "https://www.kemin.com/in/en/home" },
 ];
 
 const companyLinks: FooterLink[] = [
@@ -96,6 +96,8 @@ function FooterNav({
             <Link
               className="inline-flex min-h-11 items-center text-sm text-white/75 transition-colors duration-200 hover:text-brand-200 focus-visible:rounded-sm focus-visible:outline-brand-300"
               href={href}
+              target={href.startsWith("http") ? "_blank" : undefined}
+              rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
             >
               {linkLabel}
             </Link>
@@ -158,7 +160,7 @@ export function Footer() {
               </h2>
               <p className="mt-2 max-w-lg text-sm leading-6 text-ink-600">
                 Get occasional animal-health resources and practical updates from
-                NutriSphere.
+                Nutritech.
               </p>
             </div>
             <NewsletterSignup />
@@ -168,7 +170,7 @@ export function Footer() {
         <div className="mt-12 grid gap-x-6 gap-y-10 border-b border-white/15 pb-10 sm:grid-cols-2 lg:mt-14 lg:grid-cols-12 lg:gap-x-5 xl:gap-x-7">
           <div className="sm:col-span-2 lg:col-span-3">
             <Link
-              aria-label="NutriSphere home"
+              aria-label="Nutritech home"
               className="group inline-flex min-h-12 items-center gap-3 rounded-xl bg-white px-3 py-1 focus-visible:outline-brand-300"
               href="/"
             >
@@ -176,7 +178,7 @@ export function Footer() {
                 alt=""
                 className="h-auto w-[142px]"
                 height={107}
-                src="/solutions/logo.png"
+                src="/solutions/Nutritech.png"
                 width={180}
               />
             </Link>
@@ -185,7 +187,7 @@ export function Footer() {
               professional care conversations closer together.
             </p>
             <div className="mt-5 flex gap-2" aria-label="Social channels">
-              {/* TODO: Add links to verified NutriSphere social profiles. */}
+              {/* TODO: Add links to verified Nutritech social profiles. */}
               {[
                 { label: "Instagram profile forthcoming", Icon: Instagram },
                 { label: "LinkedIn profile forthcoming", Icon: Linkedin },
@@ -216,10 +218,10 @@ export function Footer() {
               </span>
               <span>
                 <span className="block text-sm font-semibold text-white">
-                  Find a Vet
+                  Find a Nutritionist
                 </span>
                 <span className="mt-1 block text-xs text-white/70">
-                  Vets online now
+                  Nutritionists online now
                 </span>
                 <span className="mt-1 block text-[0.65rem] text-brand-200">
                   Sample indicator · availability is not live
@@ -316,7 +318,7 @@ export function Footer() {
         <div className="relative z-10 flex flex-col gap-6 pt-6 text-sm text-white/75 lg:flex-row lg:items-start lg:justify-between">
           <p className="max-w-3xl leading-6">
             Product availability, labeling and claims may vary by regional
-            regulations. Always follow local veterinary guidance and approved
+            regulations. Always follow local nutrition guidance and approved
             product information.
           </p>
           <nav
@@ -345,7 +347,7 @@ export function Footer() {
                 <CurrentYear />
               </Suspense> 
             </span>{" "}
-            NutriSphere. All rights reserved.
+            Nutritech. All rights reserved.
           </p>
           <a
             aria-label="Back to top"
@@ -363,7 +365,7 @@ export function Footer() {
           aria-hidden="true"
           className="pointer-events-none absolute -bottom-[0.34em] left-1/2 z-0 -translate-x-1/2 select-none whitespace-nowrap font-heading text-[clamp(5rem,18vw,16rem)] font-bold leading-[0.8] tracking-[-0.075em] text-transparent [-webkit-text-stroke:1px_rgba(255,255,255,0.055)]"
         >
-          NutriSphere
+          Nutritech
         </div>
       </Container>
     </footer>

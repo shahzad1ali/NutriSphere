@@ -2,7 +2,7 @@
 
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import Link from "next/link";
-import { Arrow, Flask, Pill, Package, Vaccine } from "@/components/icons";
+import { Arrow, Leaf, Package } from "@/components/icons";
 import { Badge, Card, Container, SectionHeading } from "@/components/ui";
 import { sampleProducts, type ProductCategory } from "@/lib/data";
 import { useState } from "react";
@@ -12,15 +12,13 @@ import { SmartImage } from "@/components/ui/SmartImage";
 const categories = Object.keys(sampleProducts) as ProductCategory[];
 
 const categoryIcons = {
-  Medicines: Pill,
-  Vaccines: Vaccine,
-  "Nutrition and Supplements": Package,
-  Diagnostics: Flask,
-} satisfies Record<ProductCategory, typeof Pill>;
+  "Feed Additives": Leaf,
+  "Nutrition Programs": Package,
+} satisfies Record<ProductCategory, typeof Leaf>;
 
 export function ProductShowcase() {
   const [activeCategory, setActiveCategory] =
-    useState<ProductCategory>("Medicines");
+    useState<ProductCategory>("Feed Additives");
   const prefersReducedMotion = useReducedMotion();
   const products = sampleProducts[activeCategory];
 
@@ -53,14 +51,13 @@ export function ProductShowcase() {
       <Container>
         <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
           <SectionHeading
-            description="Browse our sample catalog of animal-health categories. Availability and product guidance can vary by region."
+            description="Explore feed additives and nutrition programs for supported animal species."
             eyebrow="Explore our range"
             id="products-heading"
-            title="Care essentials for every step."
+            title="Nutrition solutions for every animal."
           />
           <p className="max-w-sm text-sm leading-6 text-ink-500">
-            Product names below are illustrative samples, not real products or
-            treatment recommendations.
+            Product information is presented for nutrition and feed-planning conversations.
           </p>
         </div>
 
@@ -119,8 +116,8 @@ export function ProductShowcase() {
           >
             {products.map((product) => (
               <Card className="group relative flex min-h-[24rem] flex-col overflow-hidden p-0 transition hover:-translate-y-1 hover:border-brand-300" key={product.slug} interactive>
-                <Link className="absolute inset-0 z-10 rounded-3xl focus-visible:outline-4 focus-visible:outline-brand-700" href={`/products/${product.slug}`}>
-                  <span className="sr-only">View details for {product.name}</span>
+                <Link className="absolute inset-0 z-10 rounded-3xl focus-visible:outline-4 focus-visible:outline-brand-700" href="https://www.kemin.com/in/en/home" target="_blank" rel="noopener noreferrer">
+                  <span className="sr-only">Explore Kemin nutrition products</span>
                 </Link>
                 <div className="relative h-36 overflow-hidden">
                   <SmartImage
@@ -137,11 +134,7 @@ export function ProductShowcase() {
                   </span>
                   <Badge
                     className="text-[0.65rem]"
-                    tone={
-                      product.access === "Prescription required"
-                        ? "neutral"
-                        : "red"
-                    }
+                    tone="red"
                   >
                     {product.access}
                   </Badge>

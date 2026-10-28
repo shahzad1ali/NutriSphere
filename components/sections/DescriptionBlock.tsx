@@ -7,12 +7,12 @@ const approaches = [
   {
     number: "01",
     title: "Prevention",
-    text: "Good preventive care begins with observation, appropriate hygiene and plans made with veterinary professionals for the animals and conditions involved.",
+    text: "Good preventive care begins with observation, appropriate hygiene and plans made with nutrition professionals for the animals and conditions involved.",
   },
   {
     number: "02",
     title: "Treatment",
-    text: "When an animal needs attention, a qualified veterinarian can assess the situation and guide responsible, product-specific next steps.",
+    text: "When an animal needs attention, a qualified nutritionist can assess the situation and guide responsible, product-specific next steps.",
   },
   {
     number: "03",
@@ -51,7 +51,7 @@ export function DescriptionBlock() {
         </div>
         <div className="relative mt-14 rounded-2xl border-l-4 border-brand-600 bg-ink-50 px-6 py-7 text-ink-800 shadow-sm sm:px-10 sm:py-9">
           <p className="max-w-4xl font-heading text-lg font-medium leading-8 sm:text-2xl">
-            “Informed animal care is a partnership between attentive people, useful knowledge and trusted veterinary expertise.”
+            “Informed animal care is a partnership between attentive people, useful knowledge and trusted nutrition expertise.”
           </p>
         </div>
       </Container>

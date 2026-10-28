@@ -109,7 +109,7 @@ export async function POST(request: Request) {
     await transporter.sendMail({
       from: user,
       to: recipient,
-      subject: `NutriSphere contact enquiry: ${species}`,
+      subject: `Nutritech contact enquiry: ${species}`,
       text: [
         `Name: ${cleanName}`,
         `Pakistan mobile: ${phone}`,

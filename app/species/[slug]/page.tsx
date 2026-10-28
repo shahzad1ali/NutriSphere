@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: SpeciesPageProps): Promise<Me
     description: record.intro,
     alternates: { canonical: `/species/${record.slug}` },
     openGraph: {
-      title: `${record.title} Animal Health | NutriSphere`,
+      title: `${record.title} Animal Health | Nutritech`,
       description: record.intro,
       url: `${siteOrigin}/species/${record.slug}`,
       images: [`${siteOrigin}${record.image.src ?? images.hero.src}`],

@@ -4,13 +4,13 @@ import { FeaturedMedia } from "@/components/sections/FeaturedMedia";
 import { PhotoGallery } from "@/components/sections/PhotoGallery";
 import { StatsStrip } from "@/components/sections/StatsStrip";
 import { Testimonials } from "@/components/sections/Testimonials";
-import { WhyNutriSphere } from "@/components/sections/WhyNutriSphere";
+import { WhyNutritech } from "@/components/sections/WhyNutritech";
 import { PageHero } from "@/components/ui/PageHero";
 
 export const metadata: Metadata = {
-  title: "About NutriSphere",
+  title: "About Nutritech",
   description:
-    "Learn how NutriSphere brings animal-health products, practical resources and veterinary guidance together.",
+    "Learn how Nutritech brings animal-health products, practical resources and nutrition guidance together.",
   alternates: { canonical: "/about" },
 };
 
@@ -20,13 +20,13 @@ export default function AboutPage() {
       <PageHero
         breadcrumbs={[{ label: "About" }]}
         description="We connect animal-health information, practical resources and professional guidance to support informed care conversations."
-        eyebrow="About NutriSphere"
+        eyebrow="About Nutritech"
         title="Science and care, working together for animal wellbeing."
       />
       <FeaturedMedia />
       <PhotoGallery />
       <DescriptionBlock />
-      <WhyNutriSphere />
+      <WhyNutritech />
       <StatsStrip />
       <Testimonials />
     </main>

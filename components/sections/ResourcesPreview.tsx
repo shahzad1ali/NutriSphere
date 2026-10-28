@@ -54,7 +54,7 @@ export function ResourcesPreview() {
               </Link>
               <div className="relative h-40 overflow-hidden">
                 <SmartImage
-                  asset={index === 0 ? images.products.nutrition : index === 1 ? images.products.vaccines : images.species.petCare}
+                  asset={index === 0 ? images.products.nutrition : index === 1 ? images.products.feedAdditives : images.species.petCare}
                   className="size-full transition-transform duration-500 group-hover:scale-105"
                   imageClassName="transition-transform duration-500 group-hover:scale-105"
                   sizes="(max-width: 1024px) 100vw, 33vw"

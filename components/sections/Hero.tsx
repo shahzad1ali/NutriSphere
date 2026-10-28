@@ -5,25 +5,23 @@ import {
   Arrow,
   Certificate,
   Leaf,
-  Pill,
   Shield,
   Stethoscope,
-  Vaccine,
 } from "@/components/icons";
 import { Badge, Button, Container } from "@/components/ui";
 import { cn } from "@/lib/utils";
 
 const orbitItems = [
-  { icon: Pill, label: "Medicines", position: "left-1/2 top-0 -translate-x-1/2" },
-  { icon: Vaccine, label: "Vaccines", position: "right-0 top-[24%]" },
-  { icon: Stethoscope, label: "Consultation", position: "right-[8%] bottom-[8%]" },
-  { icon: Leaf, label: "Nutrition", position: "left-[8%] bottom-[8%]" },
-  { icon: Shield, label: "Prevention", position: "left-0 top-[24%]" },
+  { icon: Leaf, label: "Nutrition Programs", position: "left-1/2 top-0 -translate-x-1/2" },
+  { icon: Leaf, label: "Feed Additives", position: "right-0 top-[24%]" },
+  { icon: Stethoscope, label: "Nutrition Consulting", position: "right-[8%] bottom-[8%]" },
+  { icon: Leaf, label: "Species Nutrition", position: "left-[8%] bottom-[8%]" },
+  { icon: Shield, label: "Performance Support", position: "left-0 top-[24%]" },
 ];
 
 const trustItems = [
   {
-    icon: Pill,
+    icon: Leaf,
     value: "04",
     label: "areas of care",
   },
@@ -40,7 +38,7 @@ const trustItems = [
 ];
 
 export function Hero() {
-  // TODO: verify the cold-chain and veterinarian-approval statements before launch.
+  // TODO: verify the cold-chain and nutritionist-approval statements before launch.
   const prefersReducedMotion = useReducedMotion();
   const motionTransition = (duration: number, delay = 0) => ({
     duration: prefersReducedMotion ? 0 : duration,
@@ -118,7 +116,7 @@ export function Hero() {
             <span className="text-brand-600">for Every Animal</span>
           </h1>
           <p className="mt-6 max-w-xl text-base leading-7 text-ink-600 sm:text-lg sm:leading-8">
-            Veterinary medicines, vaccines and thoughtfully designed nutrition
+            Feed additives and thoughtfully designed nutrition programs
             come together with professional guidance to support healthier
             animals at every stage.
           </p>
@@ -128,7 +126,7 @@ export function Hero() {
               size="lg"
               withArrow
             >
-              Explore Medicines
+              Explore Nutrition Products
             </Button>
             <Button
               className="border border-ink-200 bg-white text-ink-800 hover:border-brand-300 hover:bg-brand-50"
@@ -136,12 +134,12 @@ export function Hero() {
               size="lg"
               variant="secondary"
             >
-              Book a Vet Consultation
+              Book a Nutrition Consultation
             </Button>
           </div>
 
           <div
-            aria-label="NutriSphere care overview"
+            aria-label="Nutritech care overview"
             className="mt-10 grid max-w-xl grid-cols-3 border-t border-ink-200 pt-6"
             role="group"
           >
@@ -290,11 +288,11 @@ export function Hero() {
             >
               <div className="flex items-center gap-3">
                 <span className="grid size-9 place-items-center rounded-xl bg-brand-50 text-brand-700">
-                  <Vaccine aria-hidden="true" className="size-5" />
+                  <Leaf aria-hidden="true" className="size-5" />
                 </span>
                 <span>
                   <span className="block text-xs font-semibold text-ink-900">
-                    Veterinary product guidance
+                    Nutrition product guidance
                   </span>
                   <span className="mt-1 block text-[0.65rem] text-ink-500">
                     Information for informed care
@@ -344,7 +342,7 @@ export function Hero() {
       </Container>
 
       <a
-        aria-label="Scroll down to explore medicines"
+        aria-label="Scroll down to explore nutrition"
         className="absolute bottom-5 left-1/2 z-10 hidden min-h-11 -translate-x-1/2 flex-col items-center justify-center gap-1 py-1 text-ink-500 transition hover:text-brand-700 md:flex"
         href="#services"
       >
