@@ -49,6 +49,21 @@ export const keminProducts: Record<ProductCategory, KeminProduct[]> = {
         "https://www.kemin.com/in/en/markets/animal/products/kemzyme-protease",
       fallbackImage: images.species.poultryProduction,
     },
+    {
+      slug: "endox-dry",
+      name: "ENDOX® D Dry",
+      species: "Poultry",
+      category: "Poultry Nutrition",
+      description:
+        "Kemin's feed antioxidant solution helps protect feed and fat quality from oxidation.",
+      keminUrl: "https://www.kemin.com/in/en/markets/animal/products/endox-dry",
+      image: {
+        src: "/solutions/keminpoultrynutration.jpeg",
+        alt: "Kemin antioxidant solutions for poultry feed quality",
+        category: "products",
+        fallbackIcon: "FeedAdditive",
+      },
+    },
   ],
   "Ruminant Nutrition": [
     {
@@ -234,7 +249,7 @@ export const speciesPages: SpeciesRecord[] = [
       "Nutrition and husbandry topics in one practical overview",
     ],
     relatedSpecies: ["cattle", "goat-sheep", "aquaculture"],
-    relatedProducts: ["kemtrace-supreme"],
+    relatedProducts: ["kemtrace-supreme", "endox-dry"],
     image: images.species.poultry,
     faqs: standardCareFAQs,
     gallery: [
