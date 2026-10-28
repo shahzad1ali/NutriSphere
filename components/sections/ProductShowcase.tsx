@@ -4,7 +4,11 @@ import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import Link from "next/link";
 import { Arrow, Cow, Chicken, Package } from "@/components/icons";
 import { Badge, Card, Container, SectionHeading } from "@/components/ui";
-import { keminProducts, type ProductCategory } from "@/lib/data";
+import {
+  getProductCardImage,
+  keminProducts,
+  type ProductCategory,
+} from "@/lib/data";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { SmartImage } from "@/components/ui/SmartImage";
@@ -121,7 +125,7 @@ export function ProductShowcase() {
                 </Link>
                 <div className="relative h-36 overflow-hidden">
                   <SmartImage
-                    asset={product.image}
+                    asset={getProductCardImage(product)}
                     className="size-full transition-transform duration-500 group-hover:scale-105"
                     imageClassName="transition-transform duration-500 group-hover:scale-105"
                     sizes="(max-width: 1024px) 100vw, 33vw"

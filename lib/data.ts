@@ -10,7 +10,8 @@ export type KeminProduct = {
   category: ProductCategory;
   description: string;
   keminUrl: string;
-  image: ImageAsset;
+  image?: ImageAsset;
+  fallbackImage?: ImageAsset;
 };
 
 export const keminProducts: Record<ProductCategory, KeminProduct[]> = {
@@ -24,12 +25,29 @@ export const keminProducts: Record<ProductCategory, KeminProduct[]> = {
         "Kemin's organic trace-mineral nutrition for poultry production.",
       keminUrl:
         "https://www.kemin.com/in/en/markets/animal/products/kemtrace-supreme",
-      image: {
-        src: "/solutions/keminnutration.jpeg",
-        alt: "Nutritech and Kemin animal nutrition and feed additives",
-        category: "products",
-        fallbackIcon: "Leaf",
-      },
+      fallbackImage: images.species.poultry,
+    },
+    {
+      slug: "kemtrace-poultry",
+      name: "Kemtrace®",
+      species: "Poultry",
+      category: "Poultry Nutrition",
+      description:
+        "Kemin's organic trace-mineral nutrition range for poultry.",
+      keminUrl:
+        "https://www.kemin.com/in/en/markets/animal/products/kemtrace-poultry",
+      fallbackImage: images.species.poultryHen,
+    },
+    {
+      slug: "kemzyme-protease",
+      name: "KEMZYME® Protease",
+      species: "Poultry",
+      category: "Poultry Nutrition",
+      description:
+        "Kemin's multi-protease feed solution for improved protein digestibility.",
+      keminUrl:
+        "https://www.kemin.com/in/en/markets/animal/products/kemzyme-protease",
+      fallbackImage: images.species.poultryProduction,
     },
   ],
   "Ruminant Nutrition": [
@@ -42,12 +60,7 @@ export const keminProducts: Record<ProductCategory, KeminProduct[]> = {
         "Kemin organic trace minerals formulated for dairy cattle nutrition.",
       keminUrl:
         "https://www.kemin.com/in/en/markets/animal/products/kemtrace-ruminant",
-      image: {
-        src: "/solutions/keminnutration.jpeg",
-        alt: "Nutritech and Kemin animal nutrition and feed additives",
-        category: "products",
-        fallbackIcon: "FeedAdditive",
-      },
+      fallbackImage: images.farm.farm3,
     },
     {
       slug: "repromin",
@@ -66,6 +79,32 @@ export const keminProducts: Record<ProductCategory, KeminProduct[]> = {
     },
   ],
 };
+
+export function getProductCardImage(
+  product: Pick<KeminProduct, "image" | "fallbackImage" | "species">,
+): ImageAsset {
+  if (product.image) return product.image;
+  if (product.fallbackImage) return product.fallbackImage;
+
+  const species = product.species.toLowerCase();
+  if (species.includes("poultry")) return images.species.poultry;
+  if (species.includes("buffalo")) return images.species.buffalo;
+  if (species.includes("cattle") || species.includes("cow")) {
+    return images.species.cattle;
+  }
+  if (species.includes("goat") || species.includes("sheep")) {
+    return images.species.goatSheep;
+  }
+  if (species.includes("equine") || species.includes("horse")) {
+    return images.species.equine;
+  }
+  if (species.includes("aquaculture") || species.includes("fish")) {
+    return images.species.aquaculture;
+  }
+  if (species.includes("pet")) return images.species.petCare;
+
+  return images.products.nutritionPlanning;
+}
 
 export type SampleTestimonial = {
   quote: string;

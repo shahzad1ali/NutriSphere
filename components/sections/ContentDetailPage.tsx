@@ -4,7 +4,13 @@ import { Badge, Button, Container } from "@/components/ui";
 import { ImageGallery } from "@/components/ui/ImageGallery";
 import { PageTransition } from "@/components/ui/PageTransition";
 import { SmartImage } from "@/components/ui/SmartImage";
-import { productPages, speciesPages, type DetailRecord, type ProductRecord } from "@/lib/data";
+import {
+  getProductCardImage,
+  productPages,
+  speciesPages,
+  type DetailRecord,
+  type ProductRecord,
+} from "@/lib/data";
 import { HexIcon } from "@/components/icons/HexIcon";
 
 type ContentDetailPageProps = {
@@ -22,7 +28,7 @@ function DetailRelatedCard({
   external = false,
 }: {
   href: string;
-  image: DetailRecord["image"];
+  image?: DetailRecord["image"];
   title: string;
   description: string;
   external?: boolean;
@@ -32,9 +38,11 @@ function DetailRelatedCard({
       <Link className="absolute inset-0 z-10 rounded-2xl focus-visible:outline-4 focus-visible:outline-brand-700" href={href} rel={external ? "noopener noreferrer" : undefined} target={external ? "_blank" : undefined}>
         <span className="sr-only">{external ? `View ${title} on Kemin’s website` : `View ${title}`}</span>
       </Link>
-      <div className="relative h-32 overflow-hidden">
-        <SmartImage asset={image} className="size-full transition-transform duration-500 group-hover:scale-105" imageClassName="transition-transform duration-500 group-hover:scale-105" sizes="(max-width: 640px) 80vw, 250px" />
-      </div>
+      {image ? (
+        <div className="relative h-32 overflow-hidden">
+          <SmartImage asset={image} className="size-full transition-transform duration-500 group-hover:scale-105" imageClassName="transition-transform duration-500 group-hover:scale-105" sizes="(max-width: 640px) 80vw, 250px" />
+        </div>
+      ) : null}
       <div className="p-4">
         <h4 className="font-heading font-semibold text-brand-900">{title}</h4>
         <p className="mt-1 text-xs leading-5 text-ink-600">{description}</p>
@@ -73,9 +81,13 @@ export function ContentDetailPage({
   ]);
   const related = isSpecies
     ? relatedProducts
-        .filter((product) => !usedImageSources.has(product.image.src))
+        .filter(
+          (product) =>
+            !usedImageSources.has(getProductCardImage(product).src),
+        )
         .map((product) => ({
           ...product,
+          image: getProductCardImage(product),
           href: product.keminUrl,
           external: true,
         }))

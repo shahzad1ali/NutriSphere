@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { ProductShowcase } from "@/components/sections/ProductShowcase";
 import { DirectoryListing } from "@/components/sections/DirectoryListing";
-import { productPages } from "@/lib/data";
+import { getProductCardImage, productPages } from "@/lib/data";
 import { PageHero } from "@/components/ui/PageHero";
 
 export const metadata: Metadata = {
@@ -16,7 +16,7 @@ export default function ProductDirectoryPage() {
     title: product.title,
     category: product.category,
     description: product.tagline,
-    image: product.image,
+    image: getProductCardImage(product),
     href: product.keminUrl,
   }));
   const filters = [...new Set(productPages.map(({ category }) => category))];
