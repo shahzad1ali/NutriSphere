@@ -14,6 +14,7 @@ export type DirectoryEntry = {
   category: string;
   description: string;
   image: ImageAsset;
+  href?: string;
 };
 
 export function DirectoryListing({
@@ -56,8 +57,8 @@ export function DirectoryListing({
             viewport={{ once: true, amount: 0.2 }}
             whileInView={{ opacity: 1, y: 0 }}
           >
-            <Link className="absolute inset-0 z-10 rounded-3xl focus-visible:outline-4 focus-visible:outline-brand-700" href={`${basePath}/${entry.slug}`}>
-              <span className="sr-only">Explore {entry.title}</span>
+            <Link className="absolute inset-0 z-10 rounded-3xl focus-visible:outline-4 focus-visible:outline-brand-700" href={entry.href ?? `${basePath}/${entry.slug}`} rel={entry.href ? "noopener noreferrer" : undefined} target={entry.href ? "_blank" : undefined}>
+              <span className="sr-only">{entry.href ? `View ${entry.title} on Kemin’s website` : `Explore ${entry.title}`}</span>
             </Link>
             <div className="relative h-52 overflow-hidden">
               <SmartImage asset={entry.image} className="size-full transition-transform duration-500 group-hover:scale-105" imageClassName="transition-transform duration-500 group-hover:scale-105" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />

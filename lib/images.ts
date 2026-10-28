@@ -60,7 +60,6 @@ type ImageMap = {
   };
   farm: {
     farm1: ImageAsset;
-    farm2: ImageAsset;
     farm3: ImageAsset;
     farm4: ImageAsset;
     poultryHealthCheck: ImageAsset;
@@ -204,8 +203,8 @@ export const images = {
   },
   products: {
     feedAdditives: {
-      src: "/solutions/dailyminralmix.jpeg",
-      alt: "Animal feed additive and nutrition equipment",
+      src: "/solutions/keminnutration.jpeg",
+      alt: "Nutritech distributing Kemin Animal Nutrition and Health feed additives for dairy and poultry",
       category: "products",
       fallbackIcon: "FeedAdditive",
     },
@@ -248,12 +247,6 @@ export const images = {
       alt: "Farm landscape at sunrise",
       category: "farm",
       fallbackIcon: "Leaf",
-    },
-    farm2: {
-      src: "/images/farm/feed-lab-visit.jpeg",
-      alt: "A farm team reviewing poultry feed",
-      category: "farm",
-      fallbackIcon: "Chicken",
     },
     farm3: {
       src: "/images/farm/veterinary-cattle-consultation.jpeg",

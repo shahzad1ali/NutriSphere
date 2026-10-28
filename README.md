@@ -38,7 +38,7 @@ the typed map in `lib/images.ts`. `SmartImage` displays a branded illustrated
 fallback when a matching image is not available.
 
 ```text
-farm/{cattle-blood-sampling,dairy-cow-care,feed-lab-visit,goat-veterinary-care,poultry-health-check,poultry-house,veterinary-cattle-consultation}.jpeg
+farm/{cattle-blood-sampling,dairy-cow-care,goat-veterinary-care,poultry-health-check,poultry-house,veterinary-cattle-consultation}.jpeg
 lab/{laboratory-team,microscope-technician}.jpeg
 species/{pet-care-consultation,pet-care-exam,pet-clinic,veterinary-cat-exam}.jpeg
 ```

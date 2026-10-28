@@ -2,25 +2,25 @@
 
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import Link from "next/link";
-import { Arrow, Leaf, Package } from "@/components/icons";
+import { Arrow, Cow, Chicken, Package } from "@/components/icons";
 import { Badge, Card, Container, SectionHeading } from "@/components/ui";
-import { sampleProducts, type ProductCategory } from "@/lib/data";
+import { keminProducts, type ProductCategory } from "@/lib/data";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { SmartImage } from "@/components/ui/SmartImage";
 
-const categories = Object.keys(sampleProducts) as ProductCategory[];
+const categories = Object.keys(keminProducts) as ProductCategory[];
 
 const categoryIcons = {
-  "Feed Additives": Leaf,
-  "Nutrition Programs": Package,
-} satisfies Record<ProductCategory, typeof Leaf>;
+  "Poultry Nutrition": Chicken,
+  "Ruminant Nutrition": Cow,
+} satisfies Record<ProductCategory, typeof Cow>;
 
 export function ProductShowcase() {
   const [activeCategory, setActiveCategory] =
-    useState<ProductCategory>("Feed Additives");
+    useState<ProductCategory>("Ruminant Nutrition");
   const prefersReducedMotion = useReducedMotion();
-  const products = sampleProducts[activeCategory];
+  const products = keminProducts[activeCategory];
 
   function handleTabKeyDown(event: React.KeyboardEvent<HTMLButtonElement>) {
     const currentIndex = categories.indexOf(activeCategory);
@@ -51,13 +51,13 @@ export function ProductShowcase() {
       <Container>
         <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
           <SectionHeading
-            description="Explore feed additives and nutrition programs for supported animal species."
+            description="Explore selected Kemin animal nutrition products and open their official product information."
             eyebrow="Explore our range"
             id="products-heading"
-            title="Nutrition solutions for every animal."
+            title="Kemin nutrition, by species."
           />
           <p className="max-w-sm text-sm leading-6 text-ink-500">
-            Product information is presented for nutrition and feed-planning conversations.
+            Product range and availability may vary by region. Check Kemin’s official product information.
           </p>
         </div>
 
@@ -116,8 +116,8 @@ export function ProductShowcase() {
           >
             {products.map((product) => (
               <Card className="group relative flex min-h-[24rem] flex-col overflow-hidden p-0 transition hover:-translate-y-1 hover:border-brand-300" key={product.slug} interactive>
-                <Link className="absolute inset-0 z-10 rounded-3xl focus-visible:outline-4 focus-visible:outline-brand-700" href="https://www.kemin.com/in/en/home" target="_blank" rel="noopener noreferrer">
-                  <span className="sr-only">Explore Kemin nutrition products</span>
+                <Link className="absolute inset-0 z-10 rounded-3xl focus-visible:outline-4 focus-visible:outline-brand-700" href={product.keminUrl} target="_blank" rel="noopener noreferrer">
+                  <span className="sr-only">View {product.name} on Kemin’s website</span>
                 </Link>
                 <div className="relative h-36 overflow-hidden">
                   <SmartImage
@@ -136,7 +136,7 @@ export function ProductShowcase() {
                     className="text-[0.65rem]"
                     tone="red"
                   >
-                    {product.access}
+                    Kemin product
                   </Badge>
                 </div>
                 <h3 className="mt-6 font-heading text-lg font-semibold tracking-[-0.03em] text-brand-900">
@@ -144,10 +144,9 @@ export function ProductShowcase() {
                 </h3>
                 <div className="mt-3 flex flex-wrap gap-2">
                   <Badge tone="neutral">{product.species}</Badge>
-                  <Badge tone="neutral">{product.form}</Badge>
                 </div>
                 <span className="mt-auto inline-flex min-h-11 w-fit items-center gap-2 pt-3 text-sm font-semibold text-brand-800">
-                  Request Details <Arrow aria-hidden="true" className="size-4" />
+                  View product details <Arrow aria-hidden="true" className="size-4" />
                 </span>
                 </div>
               </Card>

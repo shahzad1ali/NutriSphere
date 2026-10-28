@@ -8,7 +8,7 @@ import { images } from "@/lib/images";
 const galleryImages = [
   images.farm.farm1,
   images.lab.lab1,
-  images.farm.farm2,
+  images.products.feedAdditives,
   images.lab.lab2,
   images.farm.farm3,
   images.lab.lab3,

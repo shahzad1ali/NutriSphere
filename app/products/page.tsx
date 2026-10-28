@@ -6,7 +6,7 @@ import { PageHero } from "@/components/ui/PageHero";
 
 export const metadata: Metadata = {
   title: "Products",
-  description: "Browse sample animal-health product information by category.",
+  description: "Explore selected Kemin animal nutrition products by species and category.",
   alternates: { canonical: "/products" },
 };
 
@@ -17,6 +17,7 @@ export default function ProductDirectoryPage() {
     category: product.category,
     description: product.tagline,
     image: product.image,
+    href: product.keminUrl,
   }));
   const filters = [...new Set(productPages.map(({ category }) => category))];
 
@@ -24,9 +25,9 @@ export default function ProductDirectoryPage() {
     <main id="main-content" tabIndex={-1}>
       <PageHero
         breadcrumbs={[{ label: "Products" }]}
-        description="Illustrative product entries for review. Product availability and guidance vary by region."
-        eyebrow="Product information"
-        title="Browse our sample catalog"
+        description="Explore selected Kemin animal nutrition products. Product range and availability may vary by region."
+        eyebrow="Kemin product information"
+        title="Animal nutrition products"
       />
       <ProductShowcase />
       <DirectoryListing basePath="/products" entries={entries} filters={filters} />

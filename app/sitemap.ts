@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { productPages, sampleGuides, speciesPages } from "@/lib/data";
+import { sampleGuides, speciesPages } from "@/lib/data";
 import { siteOrigin } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -10,7 +10,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
   const generatedPages = [
     ...speciesPages.map(({ slug }) => `/species/${slug}`),
-    ...productPages.map(({ slug }) => `/products/${slug}`),
     ...sampleGuides.map(({ slug }) => `/library/${slug}`),
   ].map((path) => ({
     url: `${siteOrigin}${path}`,

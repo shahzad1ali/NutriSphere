@@ -28,7 +28,7 @@ export function FeaturedMedia() {
             <div className="absolute -bottom-4 -right-4 h-full w-full rounded-[2rem] bg-brand-200" />
             <div className="relative aspect-[4/3] overflow-hidden rounded-[2rem] shadow-xl">
               <SmartImage
-                asset={images.farm.farm2}
+                asset={images.products.feedAdditives}
                 className="size-full"
                 imageClassName="transition-transform duration-700 hover:scale-105"
                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -79,7 +79,7 @@ export function FeaturedMedia() {
       {open ? (
         <AccessibleModal className="max-w-2xl" onClose={close} title="A closer look at animal care">
           <div className="relative aspect-video overflow-hidden rounded-2xl">
-            <SmartImage asset={images.farm.farm2} className="size-full" sizes="(max-width: 768px) 96vw, 640px" />
+            <SmartImage asset={images.products.feedAdditives} className="size-full" sizes="(max-width: 768px) 96vw, 640px" />
             <div className="absolute inset-0 grid place-items-center bg-ink-950/45 p-6 text-center text-white">
               <p className="max-w-md text-base leading-7">
                 Our farm-care film is in development. This space will feature verified Nutritech stories when a video is available.

@@ -1,94 +1,68 @@
 import { images } from "@/lib/images";
 import type { ImageAsset } from "@/lib/images";
 
-export type ProductCategory = "Feed Additives" | "Nutrition Programs";
+export type ProductCategory = "Poultry Nutrition" | "Ruminant Nutrition";
 
-export type SampleProduct = {
+export type KeminProduct = {
   slug: string;
   name: string;
   species: string;
-  form: "Powder" | "Liquid" | "Pellet";
-  access: "Kemin range";
+  category: ProductCategory;
+  description: string;
+  keminUrl: string;
   image: ImageAsset;
 };
 
-// Product names are illustrative presentation entries; verify the approved Kemin range before publishing.
-export const sampleProducts: Record<ProductCategory, SampleProduct[]> = {
-  "Feed Additives": [
+export const keminProducts: Record<ProductCategory, KeminProduct[]> = {
+  "Poultry Nutrition": [
     {
-      slug: "dailybalance-mineral-mix",
-      name: "DailyBalance Mineral Mix",
-      species: "Cattle & Buffalo",
-      form: "Powder",
-      access: "Kemin range",
-      image: {
-        src: "/solutions/dailyminralmix.jpeg",
-        alt: "Animal feed mineral nutrition product",
-        category: "products",
-        fallbackIcon: "Leaf",
-      },
-    },
-    {
-      slug: "poultrystart-nutrient-blend",
-      name: "PoultryStart Nutrient Blend",
+      slug: "kemtrace-supreme",
+      name: "Kemtrace® Supreme",
       species: "Poultry",
-      form: "Powder",
-      access: "Kemin range",
+      category: "Poultry Nutrition",
+      description:
+        "Kemin's organic trace-mineral nutrition for poultry production.",
+      keminUrl:
+        "https://www.kemin.com/in/en/markets/animal/products/kemtrace-supreme",
       image: {
-        src: "/solutions/poiltrystartnutrint.jpeg",
-        alt: "Poultry feed nutrient blend",
-        category: "products",
-        fallbackIcon: "Leaf",
-      },
-    },
-    {
-      slug: "petvital-oral-supplement",
-      name: "PetVital Nutrition Supplement",
-      species: "Pet Care",
-      form: "Liquid",
-      access: "Kemin range",
-      image: {
-        src: "/solutions/petvitaloral.jpeg",
-        alt: "Companion animal nutrition supplement",
+        src: "/solutions/keminnutration.jpeg",
+        alt: "Nutritech and Kemin animal nutrition and feed additives",
         category: "products",
         fallbackIcon: "Leaf",
       },
     },
   ],
-  "Nutrition Programs": [
+  "Ruminant Nutrition": [
     {
-      slug: "aquaculture-nutrition-program",
-      name: "Aqua Nutrition Program",
-      species: "Aquaculture",
-      form: "Pellet",
-      access: "Kemin range",
+      slug: "kemtrace-ruminant",
+      name: "Kemtrace® Ruminant",
+      species: "Cattle",
+      category: "Ruminant Nutrition",
+      description:
+        "Kemin organic trace minerals formulated for dairy cattle nutrition.",
+      keminUrl:
+        "https://www.kemin.com/in/en/markets/animal/products/kemtrace-ruminant",
       image: {
-        src: "/solutions/aquaculture.jpeg",
-        alt: "Aquaculture nutrition program",
+        src: "/solutions/keminnutration.jpeg",
+        alt: "Nutritech and Kemin animal nutrition and feed additives",
         category: "products",
-        fallbackIcon: "Fish",
+        fallbackIcon: "FeedAdditive",
       },
     },
     {
-      slug: "equine-nutrition-program",
-      name: "Equine Nutrition Program",
-      species: "Equine",
-      form: "Pellet",
-      access: "Kemin range",
+      slug: "repromin",
+      name: "ReproMin™",
+      species: "Dairy Cattle",
+      category: "Ruminant Nutrition",
+      description:
+        "Kemin's functional nutrient blend for reproductive nutrition in lactating dairy animals.",
+      keminUrl: "https://www.kemin.com/in/en/markets/animal/products/repromin",
       image: {
-        src: "/solutions/equine.jpeg",
-        alt: "Equine nutrition program",
+        src: "/solutions/keminpr3.jpeg",
+        alt: "Kemin ReproMin animal nutrition product",
         category: "products",
-        fallbackIcon: "Horse",
+        fallbackIcon: "FeedAdditive",
       },
-    },
-    {
-      slug: "small-ruminant-nutrition-program",
-      name: "Small-Ruminant Nutrition Program",
-      species: "Goats & Sheep",
-      form: "Powder",
-      access: "Kemin range",
-      image: images.species.goatSheep,
     },
   ],
 };
@@ -221,7 +195,7 @@ export const speciesPages: SpeciesRecord[] = [
       "Nutrition and husbandry topics in one practical overview",
     ],
     relatedSpecies: ["cattle", "goat-sheep", "aquaculture"],
-    relatedProducts: ["poultrystart-nutrient-blend"],
+    relatedProducts: ["kemtrace-supreme"],
     image: images.species.poultry,
     faqs: standardCareFAQs,
     gallery: [
@@ -249,7 +223,7 @@ export const speciesPages: SpeciesRecord[] = [
       "Regional product information for informed enquiries",
     ],
     relatedSpecies: ["buffalo", "goat-sheep", "equine"],
-    relatedProducts: ["dailybalance-mineral-mix"],
+    relatedProducts: ["kemtrace-ruminant", "repromin"],
     image: images.species.cattle,
     faqs: standardCareFAQs,
     gallery: [images.farm.farm1, images.farm.farm3],
@@ -272,7 +246,7 @@ export const speciesPages: SpeciesRecord[] = [
       "Regional product enquiries and support information",
     ],
     relatedSpecies: ["cattle", "goat-sheep", "equine"],
-    relatedProducts: ["dailybalance-mineral-mix"],
+    relatedProducts: ["kemtrace-ruminant"],
     image: images.species.buffalo,
     faqs: standardCareFAQs,
     gallery: [images.species.cattle, images.farm.farm1],
@@ -295,7 +269,7 @@ export const speciesPages: SpeciesRecord[] = [
       "Product category information for regional enquiries",
     ],
     relatedSpecies: ["cattle", "buffalo", "equine"],
-    relatedProducts: ["small-ruminant-nutrition-program"],
+    relatedProducts: [],
     image: images.species.goatSheep,
     faqs: standardCareFAQs,
     gallery: [images.species.goats, images.species.goatHerd],
@@ -318,7 +292,7 @@ export const speciesPages: SpeciesRecord[] = [
       "Regional guidance for responsible product enquiries",
     ],
     relatedSpecies: ["poultry", "cattle", "pet-care"],
-    relatedProducts: ["aquaculture-nutrition-program"],
+    relatedProducts: [],
     image: images.species.aquaculture,
     faqs: standardCareFAQs,
     gallery: [
@@ -351,7 +325,7 @@ export const speciesPages: SpeciesRecord[] = [
       "Clear reminders to follow individual nutrition guidance",
     ],
     relatedSpecies: ["equine", "poultry", "cattle"],
-    relatedProducts: ["petvital-oral-supplement"],
+    relatedProducts: [],
     image: images.species.petCare,
     faqs: standardCareFAQs,
     gallery: [
@@ -378,121 +352,25 @@ export const speciesPages: SpeciesRecord[] = [
       "Product information to support informed enquiries",
     ],
     relatedSpecies: ["cattle", "buffalo", "goat-sheep"],
-    relatedProducts: ["equine-nutrition-program"],
+    relatedProducts: [],
     image: images.species.equine,
     faqs: standardCareFAQs,
     gallery: [images.species.equineGrazing, images.species.equineRunning],
   },
 ];
 
-export type ProductRecord = DetailRecord & {
-  category: ProductCategory;
-  species: string;
-  form: SampleProduct["form"];
-  access: SampleProduct["access"];
+export type ProductRecord = KeminProduct & {
+  title: string;
+  tagline: string;
 };
 
-const categoryDescriptions: Record<ProductCategory, string> = {
-  "Feed Additives":
-    "Feed additive selection should complement a suitable feeding plan developed for the animals and management context.",
-  "Nutrition Programs":
-    "Nutrition programs should be tailored to species, life stage, environment and production goals with specialist review.",
-};
-
-export const productPages: ProductRecord[] = Object.entries(sampleProducts)
-  .flatMap(([category, products]) =>
-    products.map((product) => ({
-      product,
-      category: category as ProductCategory,
-    })),
-  )
-  .map(({ category, product }) => {
-    const relatedSpecies = product.species.toLowerCase().includes("poultry")
-      ? ["poultry"]
-      : product.species.toLowerCase().includes("aquaculture")
-        ? ["aquaculture"]
-        : product.species.toLowerCase().includes("pet")
-          ? ["pet-care"]
-          : product.species.toLowerCase().includes("equine")
-            ? ["equine"]
-            : product.species.toLowerCase().includes("goat")
-              ? ["goat-sheep"]
-              : ["cattle", "buffalo"];
-    const image = product.image;
-    const gallery = product.species.toLowerCase().includes("poultry")
-      ? [
-          images.species.poultryHen,
-          images.species.poultryEggs,
-          images.species.poultryFeed,
-        ]
-      : product.species.toLowerCase().includes("aquaculture")
-        ? [
-            images.species.aquacultureFarm,
-            images.species.aquacultureWater,
-            images.species.aquacultureMicro,
-          ]
-        : product.species.toLowerCase().includes("pet")
-          ? [
-              images.species.petCareExam,
-              images.species.petClinic,
-              images.species.petHome,
-            ]
-          : product.species.toLowerCase().includes("equine")
-            ? [images.species.equineGrazing, images.species.equineRunning]
-            : product.species.toLowerCase().includes("goat")
-              ? [
-                  images.species.goats,
-                  images.species.goatHerd,
-                  images.species.goatSheep,
-                ]
-              : [images.species.cattle, images.farm.farm1, images.farm.farm3];
-
-    return {
-      slug: product.slug,
-      title: product.name,
-      tagline: `Sample ${category.toLowerCase()} information for professional review`,
-      intro: `${product.name} is an illustrative sample entry in the Nutritech ${category.toLowerCase()} catalog.`,
-      longDescription: [
-        `${product.name} is presented here as sample catalog content to demonstrate how product information can be organized. It is not a real product or a recommendation for treatment.`,
-        `${categoryDescriptions[category]} This page contains no dosing instructions; refer to approved labeling and seek guidance from a qualified nutrition professional.`,
-        `For an enquiry, share the animal species, location and context with the Nutritech team. Product range, availability and local suitability should be confirmed before use.`,
-      ],
-      keyBenefits: [
-        `Category: ${category}`,
-        `Intended species group: ${product.species}`,
-        `Sample product form: ${product.form}`,
-        `Access status shown for demonstration: ${product.access}`,
-      ],
-      relatedSpecies,
-      relatedProducts: sampleProducts[category]
-        .filter((item) => item.slug !== product.slug && item.species === product.species)
-        .map((item) => item.slug)
-        .slice(0, 3),
-      image,
-      faqs: [
-        {
-          question: "Is this a real product?",
-          answer:
-            "No. This entry is fictional sample content for the website design and must not be used as product guidance.",
-        },
-        {
-          question: "How should I use this product?",
-          answer:
-            "No use or dosage guidance is provided here. Consult a qualified nutritionist and follow the approved product label in your region.",
-        },
-        {
-          question: "Is this product available in my region?",
-          answer:
-            "Availability and regulatory status are not confirmed. Contact the team for verified local information before making a decision.",
-        },
-      ],
-      gallery,
-      category,
-      species: product.species,
-      form: product.form,
-      access: product.access,
-    };
-  });
+export const productPages: ProductRecord[] = Object.values(keminProducts)
+  .flat()
+  .map((product) => ({
+    ...product,
+    title: product.name,
+    tagline: product.description,
+  }));
 
 export type SampleGuide = {
   slug: string;

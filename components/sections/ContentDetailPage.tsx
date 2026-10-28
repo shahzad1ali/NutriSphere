@@ -19,16 +19,18 @@ function DetailRelatedCard({
   image,
   title,
   description,
+  external = false,
 }: {
   href: string;
   image: DetailRecord["image"];
   title: string;
   description: string;
+  external?: boolean;
 }) {
   return (
     <article className="group relative overflow-hidden rounded-2xl border border-ink-100 bg-white transition hover:-translate-y-1 hover:border-brand-300 hover:shadow-lg">
-      <Link className="absolute inset-0 z-10 rounded-2xl focus-visible:outline-4 focus-visible:outline-brand-700" href={href}>
-        <span className="sr-only">View {title}</span>
+      <Link className="absolute inset-0 z-10 rounded-2xl focus-visible:outline-4 focus-visible:outline-brand-700" href={href} rel={external ? "noopener noreferrer" : undefined} target={external ? "_blank" : undefined}>
+        <span className="sr-only">{external ? `View ${title} on Kemin’s website` : `View ${title}`}</span>
       </Link>
       <div className="relative h-32 overflow-hidden">
         <SmartImage asset={image} className="size-full transition-transform duration-500 group-hover:scale-105" imageClassName="transition-transform duration-500 group-hover:scale-105" sizes="(max-width: 640px) 80vw, 250px" />
@@ -36,7 +38,7 @@ function DetailRelatedCard({
       <div className="p-4">
         <h4 className="font-heading font-semibold text-brand-900">{title}</h4>
         <p className="mt-1 text-xs leading-5 text-ink-600">{description}</p>
-        <span className="mt-3 inline-flex min-h-11 items-center gap-2 text-xs font-semibold text-brand-800">Explore <Arrow aria-hidden="true" className="size-4" /></span>
+        <span className="mt-3 inline-flex min-h-11 items-center gap-2 text-xs font-semibold text-brand-800">{external ? "View on Kemin" : "Explore"} <Arrow aria-hidden="true" className="size-4" /></span>
       </div>
     </article>
   );
@@ -69,11 +71,21 @@ export function ContentDetailPage({
     record.image.src,
     ...practiceImages.map((image) => image.src),
   ]);
-  const related = (isSpecies ? relatedProducts : relatedSpecies).filter(
-    (item) => !usedImageSources.has(item.image.src),
-  );
-  const hrefFor = (slug: string) =>
-    `/${isSpecies ? "products" : "species"}/${slug}`;
+  const related = isSpecies
+    ? relatedProducts
+        .filter((product) => !usedImageSources.has(product.image.src))
+        .map((product) => ({
+          ...product,
+          href: product.keminUrl,
+          external: true,
+        }))
+    : relatedSpecies
+        .filter((species) => !usedImageSources.has(species.image.src))
+        .map((species) => ({
+          ...species,
+          href: `/species/${species.slug}`,
+          external: false,
+        }));
   const articleAnchor = isSpecies ? "/species" : "/products";
 
   return (
@@ -95,7 +107,7 @@ export function ContentDetailPage({
               <div className="absolute inset-x-0 bottom-0">
                 <Container className="pb-8 sm:pb-12">
                   <div className="max-w-3xl bg-ink-950/85 p-5 text-white backdrop-blur-md [clip-path:polygon(0_0,100%_0,96%_100%,0_100%)] sm:p-8">
-                    <Badge className="border border-white/15 bg-white/10 text-brand-100">{isSpecies ? "Species care" : (record as ProductRecord).category}</Badge>
+                    <Badge className="border border-white/15 bg-white/10 text-brand-100">{isSpecies ? "Species care" : "Kemin product"}</Badge>
                     <h1 className="mt-4 font-heading text-3xl font-semibold tracking-[-0.04em] sm:text-5xl" id="detail-title">{record.title}</h1>
                     <p className="mt-2 text-white/85 sm:text-lg">{record.tagline}</p>
                   </div>
@@ -171,7 +183,8 @@ export function ContentDetailPage({
                   {related.map((item) => (
                     <DetailRelatedCard
                       description={item.tagline}
-                      href={hrefFor(item.slug)}
+                      external={item.external}
+                      href={item.href}
                       image={item.image}
                       key={item.slug}
                       title={item.title}
@@ -197,7 +210,7 @@ export function ContentDetailPage({
                     {[
                       ["Overview", "#overview", "Read the introduction and care context."],
                       ["Common Diseases", "#common-diseases", "Review general care-planning considerations."],
-                      ["Recommended Products", "#recommended-products", "See related sample catalog entries."],
+                      ["Recommended Products", "#recommended-products", "See related Kemin animal nutrition products."],
                       ["Nutrition Plan", "#nutrition-plan", "Explore the related care gallery."],
                       ["Contact Us", "/contact", "Start a conversation with the team."],
                     ].map(([label, href, detail]) => (
