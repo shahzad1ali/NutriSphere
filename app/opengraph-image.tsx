@@ -14,7 +14,7 @@ export const contentType = "image/png";
 
 export default async function OpenGraphImage() {
   const socialImage = await readFile(
-    join(process.cwd(), "public/solutions/Nutritech-favicon.png"),
+    join(process.cwd(), "public/solutions/nutritech-social.png"),
   );
 
   return new ImageResponse(
