@@ -3,7 +3,7 @@ import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import { Footer } from "@/components/layout/Footer";
 import { FloatingContactBar } from "@/components/layout/FloatingContactBar";
 import { Header } from "@/components/layout/Header";
-import { siteOrigin, siteUrl } from "@/lib/site";
+import { siteOrigin } from "@/lib/site";
 import "./globals.css";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -16,6 +16,12 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
+const canonicalUrl = "https://nutritech-theta.vercel.app/";
+const socialImageUrl =
+  "https://nutritech-theta.vercel.app/solutions/nutritech-social.png";
+const socialImageAlt =
+  "Nutritech animal nutrition support, rooted in wellbeing";
+
 export const metadata: Metadata = {
   title: {
     default: "Nutritech | Animal nutrition support, rooted in wellbeing",
@@ -23,15 +29,22 @@ export const metadata: Metadata = {
   },
   description:
     "Feed additives, nutrition programs and professional nutrition consultation for healthier animals and stronger communities.",
+  metadataBase: new URL(canonicalUrl),
   openGraph: {
     title: "Nutritech | Animal nutrition support, rooted in wellbeing",
     description:
       "Feed additives, nutrition programs and professional nutrition consultation for healthier animals and stronger communities.",
-    url: siteOrigin,
+    url: canonicalUrl,
     siteName: "Nutritech",
     type: "website",
   },
-  metadataBase: siteUrl,
+  twitter: {
+    card: "summary_large_image",
+    title: "Nutritech | Animal nutrition support, rooted in wellbeing",
+    description:
+      "Feed additives, nutrition programs and professional nutrition consultation for healthier animals and stronger communities.",
+    images: [{ url: socialImageUrl, alt: socialImageAlt }],
+  },
   icons: {
     icon: "/solutions/Nutritech-favicon.png",
     apple: "/solutions/Nutritech.png",
